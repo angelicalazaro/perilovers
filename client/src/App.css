@@ -143,3 +143,10 @@ footer {
     color: #fff;
   }
 }
+
+.moving_img {
+	z-index: 1;
+	position: absolute;
+	top: 600px;
+	left: 200px;
+}

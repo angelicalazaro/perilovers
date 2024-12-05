@@ -17,7 +17,8 @@ function App() {
 	return (
 		<>
 			<h3>
-				Cherchez-moi ! <img src="./assets/images/sau1teur.gif" />
+				Cherchez-moi !{" "}
+				<img src="./assets/images/sau1teur.gif" alt="gif_sauteur" />
 				{/* //ne marche pas pour l'instant */}{" "}
 			</h3>
 			<div>
@@ -30,7 +31,7 @@ function App() {
 			<main>
 				<Outlet />
 
-				<img src="../assets/images/pub_charantaises.png" />
+				<img src="../assets/images/pub_charantaises.png" alt="Pub" />
 			</main>
 			<footer>
 				<p className="liens_footer">

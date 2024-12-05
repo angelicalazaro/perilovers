@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import pub_charantaises from "./assets/images/pub_charantaises.png";
 
 const FakeAd: React.FC = () => {
@@ -10,6 +10,7 @@ const FakeAd: React.FC = () => {
 				style. Parfaites pour coder en toute sérénité, même par temps glacial.
 			</p>
 			<button
+				type="button"
 				style={styles.button}
 				onClick={() => alert("Charentaises ajoutées au panier !")}
 			>
