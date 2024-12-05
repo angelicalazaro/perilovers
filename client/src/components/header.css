@@ -1,0 +1,21 @@
+#Logo {
+	width: 15%;
+}
+
+header {
+	background-image: url(/src/assets/images/Vichy.jpg);
+	height: 11rem;
+	background-size: contain;
+	/* display: flex;
+	flex-direction: column; */
+}
+
+.NavBar {
+	display: flex;
+	flex-direction: column;
+}
+
+.boutons_du_footer {
+	width: 10%;
+	margin-top: 8px;
+}
