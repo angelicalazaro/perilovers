@@ -1,0 +1,57 @@
+.construction-page {
+	min-height: 100vh;
+	background-image: url(https://img.freepik.com/vecteurs-libre/fond-motif-rose_78370-3289.jpg?t=st=1733412152~exp=1733415752~hmac=f4d184b7f56f9950136c97021b92008a0633994c6cb50b661924affe77fbd306&w=740);
+	background-repeat: repeat;
+}
+
+.construction-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	padding: 6rem 2rem 4rem 2rem;
+	text-align: center;
+}
+
+.construction-banner {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	font-family: "Comic Neue", sans-serif;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #c0329b;
+	text-shadow: 1px 1px 0px #fff;
+	border: double #c0329b 4px;
+	padding: 0.5rem 2rem;
+	background: rgba(255, 255, 255, 0.7);
+}
+
+.construction-body {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	background: rgba(255, 255, 255, 0.75);
+	border: double black 4px;
+	padding: 2rem;
+	max-width: 600px;
+}
+
+.construction-smiley {
+	width: 60px;
+	height: 60px;
+}
+
+.construction-message {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 1.1rem;
+	color: #333;
+	margin: 0;
+	line-height: 1.8;
+}
+
+.construction-back {
+	display: inline-block;
+	text-decoration: none;
+	margin-top: 1rem;
+}

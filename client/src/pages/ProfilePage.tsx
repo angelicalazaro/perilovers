@@ -23,17 +23,19 @@ const ProfilePage: React.FC = () => {
 
 	// Fetch profiles from API
 	useEffect(() => {
+		const controller = new AbortController();
+
 		const fetchProfiles = async () => {
 			try {
 				const response = await fetch(
-					"https://randomuser.me/api/?results=128&nat=us,gb,fr", // Fetch 12 users for filtering
+					"https://randomuser.me/api/?results=128&nat=us,gb,fr",
+					{ signal: controller.signal },
 				);
 				const data = await response.json();
 
-				// Filter profiles for age > 50
 				const filteredProfiles = data.results
-					.filter((user: any) => user.dob.age > 50) // Keep only users older than 50
-					.slice(0, 6) // Limit to 6 profiles
+					.filter((user: any) => user.dob.age > 50)
+					.slice(0, 6)
 					.map((user: any) => ({
 						id: user.login.uuid,
 						name: `${user.name.first} ${user.name.last}`,
@@ -42,18 +44,19 @@ const ProfilePage: React.FC = () => {
 					}));
 
 				setProfiles(filteredProfiles);
-			} catch (error) {
-				console.error("Error fetching profiles:", error);
+			} catch (error: any) {
+				if (error.name !== "AbortError") {
+					console.error("Error fetching profiles:", error);
+				}
 			}
 		};
 
 		fetchProfiles();
 
-		// Cleanup function to prevent state updates after the component unmounts
 		return () => {
-			setProfiles([]); // Reset profiles when component unmounts
+			controller.abort();
 		};
-	}, []); // Empty dependency array ensures this effect runs once when the component mounts
+	}, []);
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
@@ -63,12 +66,10 @@ const ProfilePage: React.FC = () => {
 	return (
 		
 		<div className="profile-page">
-<h2 id="nos_events" className="rainbow">
-				<span className="text">Nos profils <img src="https://code.divshot.com/geo-bootstrap/img/test/hot.gif"/></span>
+			<Header />
+			<h2 id="nos_events" className="rainbow">
+				<span className="text"><span>Nos profils </span><img src="https://code.divshot.com/geo-bootstrap/img/test/hot.gif" alt="" /></span>
 			</h2>
-			<header>
-				<Header />
-			</header>
 
 			<div className="profile-container">
 				<div className="profile-images">
@@ -78,7 +79,7 @@ const ProfilePage: React.FC = () => {
 								<img src={profile.picture} alt={`Profile of ${profile.name}`} />
 								<div className="profile-info">
 									<h3>{profile.name}</h3>
-									<p>Age: {profile.age}</p>
+									<p>{`Age : ${profile.age}`}</p>
 								</div>
 							</div>
 						))

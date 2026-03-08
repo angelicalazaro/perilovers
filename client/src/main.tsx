@@ -8,11 +8,14 @@ import Home from "./pages/Home";
 // import Profils from "./pages/Profils";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
+import ErrorPage from "./pages/ErrorPage";
+import UnderConstruction from "./pages/UnderConstruction";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <App />,
+		errorElement: <ErrorPage />,
 		children: [
 			{
 				path: "/login", // The root path
@@ -23,10 +26,25 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path:"/profils",
-				element:<ProfilePage/>
-			}
-
+				path: "/profils",
+				element: <ProfilePage />,
+			},
+			{
+				path: "/livre-dor",
+				element: <UnderConstruction pageName="Livre d'or" />,
+			},
+			{
+				path: "/forum",
+				element: <UnderConstruction pageName="Forum" />,
+			},
+			{
+				path: "/faq",
+				element: <UnderConstruction pageName="FAQ" />,
+			},
+			{
+				path: "/aide",
+				element: <UnderConstruction pageName="Aidez-moi !" />,
+			},
 		],
 	},
 ]);
