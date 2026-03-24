@@ -20,20 +20,6 @@ function Home() {
 		return () => clearInterval(interval);
 	}, []);
 
-	useEffect(() => {
-		if (document.querySelector('script[src*="cse.google.com"]')) return;
-
-		const script = document.createElement("script");
-		script.src = "https://cse.google.com/cse.js?cx=b2615d1ca9908476e";
-		script.async = true;
-		document.body.appendChild(script);
-
-		return () => {
-			if (document.body.contains(script)) {
-				document.body.removeChild(script);
-			}
-		};
-	}, []);
 
 	return (
 		<>
